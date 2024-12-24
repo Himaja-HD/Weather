@@ -3,25 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Favicon for the webpage -->
     <link rel="icon" href="image/icon.jpg"/>
     <title>Weather Forecast</title>   
 </head>
 <body class="bg-gray-200 lg:overflow-hidden">
-
+    
+    <!-- Header Section -->
     <header id="header" class="bg-slate-700 text-white py-4 px-6 flex items-center justify-between shadow-lg">
-        <h1 class="text-xl font-bold sm:text-2xl md:text-3xl text-center font-serif">Weather Forecast</h1>
+        <!-- Page title -->
+        <h1 class="text-xl font-bold sm:text-2xl md:text-3xl font-serif flex-1 text-center">Weather Forecast</h1>   
+        <!-- Button to toggle theme or other functionality -->
         <button id="tgleBtn" class="bg-white text-slate-700 px-4 py-2 rounded-full hover:bg-green-100 transition duration-300">
             <i id="icon" class="fas fa-sun"></i>
         </button>
     </header>
 
+    <!-- Main Content Section -->
     <main class="mt-8 px-4 md:px-8">
+        <!-- Section for user input and recent searches -->
         <section class="w-full flex flex-col lg:flex-row gap-8 items-start">
+            
+            <!-- Search input and buttons -->
             <section class="w-full lg:w-2/5 fade-in lg:flex-none">
                 <div class="flex justify-center lg:justify-start gap-4 mb-6">
+                    <!-- Input field for city name -->
                     <input type="text" id="cityInput" class="w-full px-6 h-11 rounded-lg border-2 border-slate-700 text-xl focus:outline-none focus:ring-2 focus:ring-slate-500 hover:scale-105 transition-transform" placeholder="Enter city name">
+                    
+                    <!-- Search and Current Location buttons -->
                     <div class="flex flex-col gap-2">
                         <button id="searchButton" class="bg-slate-600 text-white px-6 py-3 rounded-lg hover:bg-slate-700 transition duration-300">
                             Search
@@ -32,54 +45,66 @@
                     </div>
                 </div>
     
-               
+                <!-- Error message placeholder -->
                 <div id="errorMessage" class="text-red-500 hidden text-center mb-4"></div>
     
-               
+                <!-- Recently searched dropdown -->
                 <article id="recent" class="text-center">
                     <div class="relative">
+                        <!-- Dropdown button -->
                         <button id="dropdownButton" class="flex justify-between bg-slate-500 text-white px-4 py-2 rounded-md w-full text-left focus:ring-2 focus:ring-slate-800 hover:bg-slate-600 transition duration-200">
                             Recently Searched
                             <i id="dropdownIcon" class="fas fa-chevron-down ml-2"></i>
                         </button>
+                        
+                        <!-- Dropdown list for cities -->
                         <ul id="cityList" class="absolute left-0 w-full bg-white border border-gray-300 rounded-md shadow-lg hidden mt-2">
-                            
                         </ul>
                     </div>
                 </article>
             </section>
     
-           
+            <!-- Weather information section -->
             <section id="wInfo" class="w-full fade-in hidden justify-between text-center mb-2 bg-slate-100 p-5 rounded-lg shadow-lg">
+                <!-- City name -->
                 <h2 id="cityName" class="text-4xl font-semibold text-pink-700"></h2>
+                
+                <!-- Weather details -->
                 <div class="flex flex-row justify-around">
                     <div id="wDetails" class="mt-4 space-y-4">
+                        <!-- Temperature display -->
                         <div class="flex items-center text-3xl text-blue-500 font-semibold">
                             <i class="fas fa-thermometer-half text-red-600 mr-3"></i>
                             <span id="temp">--°C</span>
                         </div>
+                        <!-- Humidity display -->
                         <div class="flex items-center text-md text-green-600">
                             <i class="fas fa-tint mr-3 text-blue-800"></i>
                             <span id="humid">Humidity: --%</span>
                         </div>
+                        <!-- Wind speed display -->
                         <div class="flex items-center text-md text-gray-500">
                             <i class="fas fa-wind mr-3 text-green-300"></i>
                             <span id="wind">Wind: -- km/h</span>
                         </div>
                     </div>
+                    
+                    <!-- Weather icon -->
                     <div id="wIcon" class="mt-4 text-6xl text-orange-500"></div>
                 </div>
             </section>
-           
         </section>
     
-         <section id="Forecast" class="w-full bg-gray-100 p-3 rounded-lg shadow-xl hidden">
+        <!-- 5-Day Forecast Section -->
+        <section id="Forecast" class="w-full bg-gray-100 p-3 rounded-lg shadow-xl hidden">
             <h3 class="text-xl font-semibold text-gray-700">5-Day Forecast</h3>
+            <!-- Container for forecast cards -->
             <div id="fore-Container" class="flex flex-col lg:flex-row gap-4 mt-2">
-                        
-             </div>
+            </div>
         </section>
     </main>
+
+    <!-- JavaScript file for functionality -->
     <script src="weather.js"></script>
 </body>
 </html>
