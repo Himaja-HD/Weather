@@ -19,6 +19,7 @@ const cityList = document.getElementById('cityList');
 const dropdownButton = document.getElementById('dropdownButton');
 const dropdownIcon = document.getElementById('dropdownIcon');
 const forecastContainer = document.getElementById('fore-Container');
+const Forecast = document.getElementById('Forecast');
 
 // Event listener for theme toggle button (sun/moon icon change)
 toggleButton.addEventListener('click', () => {
@@ -64,7 +65,7 @@ const fetchWeatherByCity = async (city) => {
         // Hide error message and show weather info
         errorMessage.classList.add('hidden');
         wInfo.classList.remove('hidden');
-
+        Forecast.classList.remove('hidden');
         // Store recently searched city
         storeRecentCity(data.name);
 
@@ -142,7 +143,7 @@ const updateCityListDropdown = () => {
     recentCities.forEach(city => {
         const li = document.createElement('li');
         li.textContent = city;
-        li.classList.add('px-4', 'py-2', 'cursor-pointer', 'hover:bg-gray-100');
+        li.classList.add('px-4', 'py-2','hover:bg-gray-100');
         li.addEventListener('click', () => fetchWeatherByCity(city)); // Fetch weather for the city when clicked
         cityList.appendChild(li);
     });
@@ -161,6 +162,7 @@ const showErrorMessage = (message) => {
     errorMessage.textContent = message;
     errorMessage.classList.remove('hidden'); // Show the error message
     wInfo.classList.add('hidden'); // Hide the weather information
+    Forecast.classList.add('hidden');
 };
 
 // Function to get the appropriate weather icon based on weather condition
@@ -206,5 +208,5 @@ locationButton.addEventListener('click', () => {
     });
 });
 
-// Initialize dropdown with recent cities on page load
+// recent cities on page load
 updateCityListDropdown();
